@@ -26,6 +26,64 @@
   
 </head>
 <body>
+    <!-- POPUP NATAL MOBIRISE 4 -->
+<div id="popupNatal" style="
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+">
+  <div style="
+    background:#ffffff;
+    max-width:420px;
+    width:90%;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    position:relative;
+    font-family:Arial, sans-serif;
+  ">
+    <button onclick="fecharPopup()" style="
+      position:absolute;
+      top:10px;
+      right:14px;
+      border:none;
+      background:none;
+      font-size:22px;
+      cursor:pointer;
+    ">×</button>
+
+    <h2 style="color:#c0392b;">🎄 Feliz Natal e Próspero Ano Novo!</h2>
+
+    <p style="color:#555; line-height:1.6;">
+      Agradecemos a confiança ao longo deste ano.<br>
+      Desejamos um Natal cheio de paz, saúde e sucesso!
+    </p>
+
+    <p style="margin-top:18px; font-weight:bold;">
+      NONATO Consultoria e Contabilidade profissional
+    </p>
+  </div>
+</div>
+
+<script>
+function fecharPopup() {
+  document.getElementById("popupNatal").style.display = "none";
+  localStorage.setItem("popupNatalVisto", "true");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (!localStorage.getItem("popupNatalVisto")) {
+    document.getElementById("popupNatal").style.display = "flex";
+  }
+});
+</script>
+
     <!DOCTYPE html>
     <html lang="pt-br">
     <head>	

@@ -84,58 +84,175 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-    <!-- POPUP NATAL MOBIRISE 4 -->
+<!-- FONT AWESOME (ÍCONE WHATSAPP) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Botão WhatsApp -->
-<a
-  href="https://wa.me/5516988296011?text=Ol%C3%A1!%20Ola gostaria%20de%20agendar%20um%20horário , ou tirar uma duvida."
-  class="whatsapp-fixo"
-  target="_blank"
-  aria-label="Agende sua consulta pelo WhatsApp"
->
-  <img
-    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-    alt="WhatsApp"
-  />
-  <span>Agende seu horário</span>
-</a>
-
+<!-- BOTÃO WHATSAPP OUTLINE + POPUP -->
 <style>
-.whatsapp-fixo {
+.whatsapp-btn {
   position: fixed;
-  right: 20px;
   bottom: 20px;
+  right: 20px;
+
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: #48c35a;
-  color: #ffffff;
-  padding: 14px 18px;
+
+  padding: 12px 18px;
+
+  border: 2px solid #fff;
   border-radius: 50px;
-  text-decoration: none;
+
+  background: #9e8e7f;
+  color: #fff;
+
+  font-size: 16px;
   font-family: Arial, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
   z-index: 9999;
+
+  transition: all 0.25s ease;
 }
 
-.whatsapp-fixo img {
-  width: 26px;
-  height: 26px;
+.whatsapp-btn i {
+  font-size: 22px;
 }
 
-.whatsapp-fixo:hover {
+.whatsapp-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
-  color: #ffffff; /* mantém o texto branco */
 }
 
-.whatsapp-fixo span {
-  white-space: nowrap;
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 10000;
+}
+
+.popup-content {
+  background: #fff;
+  width: 320px;
+  max-width: 90%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  font-family: Arial, sans-serif;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.popup-content input,
+.popup-content textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.popup-content textarea {
+  resize: none;
+  height: 80px;
+}
+
+.popup-content button {
+  width: 100%;
+  background: #9e8e7f;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 </style>
+
+<!-- BOTÃO -->
+<div class="whatsapp-btn" onclick="abrirPopup()" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Agende seu horário</span>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="fecharPopup()">×</span>
+    <h2>Fale Conosco</h2>
+
+    <form onsubmit="enviarWhatsApp(event)">
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <input type="email" id="email" placeholder="Seu email" required>
+      <textarea id="mensagem" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+function abrirPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function fecharPopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+window.onclick = function(e) {
+  const popup = document.getElementById("popup");
+  if (e.target === popup) {
+    fecharPopup();
+  }
+}
+
+function enviarWhatsApp(event) {
+  event.preventDefault();
+
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("email").value;
+  const mensagem = document.getElementById("mensagem").value;
+
+  const telefone = "5516988296011"; // <<< TROQUE AQUI
+
+  const texto =
+    `Olá! Meu nome é ${nome}
+Email: ${email}
+Mensagem: ${mensagem}`;
+
+  const url = "https://wa.me/" + telefone + "?text=" + encodeURIComponent(texto);
+  window.open(url, "_blank");
+
+  fecharPopup();
+}
+</script>
+</script>
 
     
 

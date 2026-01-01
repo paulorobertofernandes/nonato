@@ -28,6 +28,269 @@
 <body>
   <section class="menu cid-u1IiYmkbOW" once="menu" id="menu1-0">
 
+<!-- POPUP FELIZ 2026 -->
+<style>
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.popup-box {
+    background: #ffffff;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px 25px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.popup-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+}
+
+.popup-box h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.popup-box p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.popup-box button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #9e8e7f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.popup-box button:hover {
+    opacity: 0.9;
+}
+</style>
+
+<div class="popup-overlay" id="popup2026">
+    <div class="popup-box">
+        <span class="popup-close" id="fecharPopup">×</span>
+        <h2>🎉 Feliz 2026!</h2>
+        <p>
+            Nonato consultoria e contabilidade deseja a você e sua empresa  
+            um ano novo de crescimento, organização financeira  
+            e muito sucesso.
+        </p>
+        <button id="btnFechar">Fechar</button>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    var popup = document.getElementById("popup2026");
+    var fechar = document.getElementById("fecharPopup");
+    var botao = document.getElementById("btnFechar");
+
+    fechar.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+
+    botao.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+
+});
+</script>
+
+
+<!-- FONT AWESOME (ÍCONE WHATSAPP) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- BOTÃO WHATSAPP OUTLINE + POPUP -->
+<style>
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 18px;
+
+  border: 2px solid #fff;
+  border-radius: 50px;
+
+  background: #9e8e7f;
+  color: #fff;
+
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  z-index: 9999;
+
+  transition: all 0.25s ease;
+}
+
+.whatsapp-btn i {
+  font-size: 22px;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10000;
+}
+
+.popup-content {
+  background: #fff;
+  width: 320px;
+  max-width: 90%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  font-family: Arial, sans-serif;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.popup-content input,
+.popup-content textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.popup-content textarea {
+  resize: none;
+  height: 80px;
+}
+
+.popup-content button {
+  width: 100%;
+  background: #9e8e7f;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</style>
+
+<!-- BOTÃO -->
+<div class="whatsapp-btn" onclick="abrirPopup()" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Agende seu horário</span>
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="fecharPopup()">×</span>
+    <h2>Fale Conosco</h2>
+
+    <form onsubmit="enviarWhatsApp(event)">
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <input type="email" id="email" placeholder="Seu email" required>
+      <textarea id="mensagem" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+function abrirPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function fecharPopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+window.onclick = function(e) {
+  const popup = document.getElementById("popup");
+  if (e.target === popup) {
+    fecharPopup();
+  }
+}
+
+function enviarWhatsApp(event) {
+  event.preventDefault();
+
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("email").value;
+  const mensagem = document.getElementById("mensagem").value;
+
+  const telefone = "5511999999999"; // <<< TROQUE AQUI
+
+  const texto =
+    `Olá! Meu nome é ${nome}
+Email: ${email}
+Mensagem: ${mensagem}`;
+
+  const url = "https://wa.me/" + telefone + "?text=" + encodeURIComponent(texto);
+  window.open(url, "_blank");
+
+  fecharPopup();
+}
+</script>
+
+
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="hamburger">
@@ -62,11 +325,11 @@
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/h">how to create your own web page for free</a></section><section class="header9 cid-u1Iqd3YVN9 mbr-fullscreen mbr-parallax-background" id="header9-1">
+<section class="engine"><a href="https://mobirise.info/y">html site templates</a></section><section class="header9 cid-u1Iqd3YVN9 mbr-fullscreen mbr-parallax-background" id="header9-1">
 
     
 
-    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(255, 255, 255);">
+    <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(255, 255, 255);">
     </div>
 
     <div class="container">
@@ -251,7 +514,7 @@
                 </div>
                 <div data-form-type="formoid">
                     <!---Formbuilder Form--->
-                    <form action="https://mobirise.com/" method="POST" class="mbr-form form-with-styler" data-verified="danielnonatocontabilidade@gmail.com" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="l5amXCDBRzhD9xCnxZSbTKeD50E76raFJ67ml+RpVi9/RjJAigK/YLsbKngV+e14/pN1p9AsnontwV2NxUApmSP/6Oxql/+wZcoGkbNdGsVPNhTWZtFX28gAbAqX4FM4">
+                    <form action="https://mobirise.com/" method="POST" class="mbr-form form-with-styler" data-verified="danielnonatocontabilidade@gmail.com" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="Tf0R8Sc8yhTtcSfiOOlM/Fdq+x08bkv2TsgCw9NWFlNChiLXpHadJJ2vBn7cZSgNhfO+4YCixyw2ha8mBp6313TJdHjKjroxyUn+Y1DqVHY77W5rmJ5NbauM9WGj2lVm">
                         <div class="row">
                             <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Obrigado pelo contato, ja recebemos sua mensagem e responderemos em breve.</div>
                             <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -330,7 +593,6 @@
     </div>
 </section>
 
-
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -342,177 +604,7 @@
   <script src="assets/tether/tether.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
   <script src="assets/formoid/formoid.min.js"></script>
-  <section class="menu cid-u1IiYmkbOW" once="menu" id="menu1-0">
-
-    <!-- FONT AWESOME (ÍCONE WHATSAPP) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<!-- BOTÃO WHATSAPP OUTLINE + POPUP -->
-<style>
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 12px 18px;
-
-  border: 2px solid #fff;
-  border-radius: 50px;
-
-  background: #9e8e7f;
-  color: #fff;
-
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  cursor: pointer;
-  z-index: 9999;
-
-  transition: all 0.25s ease;
-}
-
-.whatsapp-btn i {
-  font-size: 22px;
-}
-
-.whatsapp-btn:hover {
-  transform: scale(1.05);
-}
-
-/* Popup */
-.popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 10000;
-}
-
-.popup-content {
-  background: #fff;
-  width: 320px;
-  max-width: 90%;
-  margin: auto;
-  margin-top: 10%;
-  padding: 20px;
-  border-radius: 10px;
-  position: relative;
-  font-family: Arial, sans-serif;
-  animation: fadeIn 0.3s ease;
-}
-
-.popup-content h2 {
-  margin-top: 0;
-  text-align: center;
-}
-
-.popup-content input,
-.popup-content textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-  font-size: 14px;
-}
-
-.popup-content textarea {
-  resize: none;
-  height: 80px;
-}
-
-.popup-content button {
-  width: 100%;
-  background: #9e8e7f;
-  color: white;
-  border: none;
-  padding: 10px;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.close {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/* Animação */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-</style>
-
-<!-- BOTÃO -->
-<div class="whatsapp-btn" onclick="abrirPopup()" aria-label="WhatsApp">
-  <i class="fa-brands fa-whatsapp"></i>
-  <span>Agende seu horário</span>
-</div>
-
-<!-- POPUP -->
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="fecharPopup()">×</span>
-    <h2>Fale Conosco</h2>
-
-    <form onsubmit="enviarWhatsApp(event)">
-      <input type="text" id="nome" placeholder="Seu nome" required>
-      <input type="email" id="email" placeholder="Seu email" required>
-      <textarea id="mensagem" placeholder="Sua mensagem" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
-</div>
-
-<!-- JAVASCRIPT -->
-<script>
-function abrirPopup() {
-  document.getElementById("popup").style.display = "block";
-}
-
-function fecharPopup() {
-  document.getElementById("popup").style.display = "none";
-}
-
-window.onclick = function(e) {
-  const popup = document.getElementById("popup");
-  if (e.target === popup) {
-    fecharPopup();
-  }
-}
-
-function enviarWhatsApp(event) {
-  event.preventDefault();
-
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const mensagem = document.getElementById("mensagem").value;
-
-  const telefone = "5516988296011"; // <<< TROQUE AQUI
-
-  const texto =
-    `Olá! Meu nome é ${nome}
-Email: ${email}
-Mensagem: ${mensagem}`;
-
-  const url = "https://wa.me/" + telefone + "?text=" + encodeURIComponent(texto);
-  window.open(url, "_blank");
-
-  fecharPopup();
-}
-</script>
-
+  
   
 </body>
 </html>

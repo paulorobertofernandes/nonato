@@ -47,7 +47,7 @@
     background: #ffffff;
     width: 90%;
     max-width: 420px;
-    padding: 30px 25px;
+    padding: 20px;
     border-radius: 12px;
     text-align: center;
     position: relative;
@@ -56,49 +56,27 @@
 
 .popup-close {
     position: absolute;
-    top: 12px;
-    right: 15px;
-    font-size: 24px;
+    top: 10px;
+    right: 14px;
+    font-size: 26px;
     cursor: pointer;
     color: #555;
 }
 
-.popup-box h2 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-
-.popup-box p {
-    color: #555;
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-.popup-box button {
-    margin-top: 20px;
-    padding: 10px 25px;
-    background: #9e8e7f;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.popup-box button:hover {
-    opacity: 0.9;
+/* Imagem responsiva */
+.popup-box img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 8px;
 }
 </style>
 
 <div class="popup-overlay" id="popup2026">
     <div class="popup-box">
-        <span class="popup-close" id="fecharPopup">×</span>
-        <h2>🎉 Feliz 2026!</h2>
-        <p>
-            Nonato consultoria e contabilidade deseja a você e sua empresa  
-            um ano novo de crescimento, organização financeira  
-            e muito sucesso.
-        </p>
-        <button id="btnFechar">Fechar</button>
+        <span class="popup-close" id="fecharPopup">X</span>
+
+        <!-- IMAGEM DO POPUP -->
+        <img src="assets/images/imposto2025.png" alt="Feliz 2026">
     </div>
 </div>
 
@@ -107,13 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var popup = document.getElementById("popup2026");
     var fechar = document.getElementById("fecharPopup");
-    var botao = document.getElementById("btnFechar");
 
     fechar.addEventListener("click", function () {
-        popup.style.display = "none";
-    });
-
-    botao.addEventListener("click", function () {
         popup.style.display = "none";
     });
 

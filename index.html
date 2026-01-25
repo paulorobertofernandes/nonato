@@ -28,7 +28,92 @@
 <body>
   <section class="menu cid-u1IiYmkbOW" once="menu" id="menu1-0">
 
+<div id="popup-overlay" class="popup-overlay">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <img src="assets/images/whatsapp-image-2025-12-30-at-09.46.12-removebg-preview-1-50x50.png" alt="" class="popup-img">
+        <h2>IRPF!</h2>
+        <p>Não deixe para ultima hora. Se informe sobre sua situação fiscal.</p>
+        <a href="https://paulorobertofernandes.github.io/nonato/nonato.html#form4-7" class="popup-link">Saiba Mais</a>
+    </div>
+</div>
 
+<style>
+/* Estilização Visual */
+.popup-overlay {
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 5px 15px #333;
+    animation: fadeIn 0.4s;
+}
+
+.popup-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.popup-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #9e8e7f;
+    color: #FFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<script>
+// Função para fechar o pop-up
+function closePopup() {
+    document.getElementById("popup-overlay").style.display = "none";
+}
+
+// Fecha se o usuário clicar fora da caixa branca
+window.onclick = function(event) {
+    var overlay = document.getElementById("popup-overlay");
+    if (event.target == overlay) {
+        closePopup();
+    }
+}
+</script>
 
 <!-- FONT AWESOME (ÍCONE WHATSAPP) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
